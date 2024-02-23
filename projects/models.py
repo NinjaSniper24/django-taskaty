@@ -1,8 +1,8 @@
 from django.db import models
 from django.conf.global_settings import AUTH_USER_MODEL
 
-class Categoty(models.Model) :
-    name = models.CharField(max_length=50)
+class Category(models.Model) :
+    name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
@@ -19,8 +19,8 @@ class Project(models.Model) :
     status = models.IntegerField(choices = Status.choices, default = Status.PENDING)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    categoty = models.ForeignKey(Categoty, on_delete=models.PROTECT)
-    user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT )
+    user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE , null= True)
 
     def __str__(self) :
         return self.title
