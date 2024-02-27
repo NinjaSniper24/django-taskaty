@@ -1,0 +1,10 @@
+
+{% load i18n %}
+{% block content %}
+Are u sure ?
+   <form method="post">
+     {% csrf_token %}
+     {{ form }}
+     <input type="submit" value="Submit"/>
+   </form>
+{% endblock %}
