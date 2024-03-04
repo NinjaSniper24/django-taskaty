@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 class RegisterView(CreateView):
     form_class = UserRegisterForm
-    success_url = reverse_lazy('login')
+    
     template_name = 'registration/register.html'
 
     def get_success_url(self):
